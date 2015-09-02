@@ -1,5 +1,5 @@
 Package: describer
-Title: Describe Data in R
+Title: Describe Data in R Using Common Descriptive Statistics
 Version: 0.1.0
 Description: Allows users to quickly and easily describe data using
     common descriptive statistics.
