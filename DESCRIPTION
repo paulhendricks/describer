@@ -1,6 +1,6 @@
 Package: describer
 Title: Describe data in R
-Version: 0.0.0.9000
+Version: 0.1.0
 Description: Allows users to quickly and easily describe data using
     common descriptive statistics.
 Authors@R: person("Paul", "Hendricks", , "paul.hendricks.2013@owu.edu", c("aut", "cre"))
@@ -10,4 +10,5 @@ Depends: R (>= 3.1.2)
 License: MIT + file LICENSE
 LazyData: true
 Suggests:
+    dplyr,
     testthat
