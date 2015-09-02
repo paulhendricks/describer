@@ -10,7 +10,7 @@
 #' @export
 describe <- function(.x) UseMethod("describe")
 
-#' describe numeric atomic vectors.
+#' Describe numeric atomic vectors.
 #'
 #' \code{describe_numeric} takes numeric vectors and returns a data.frame containing important descriptive statistics.
 #'
@@ -27,17 +27,19 @@ describe_numeric <- function(.x) {
     .count_elements = function(.x, ...) length(.x),
     .count_nulls = function(.x, ...) sum(is.na(.x)),
     .q0_value = function(.x, ...) min(.x, ...),
-    .q25_value = function(.x, ...) quantile(.x, probs = 0.25, ...),
-    .q50_value = function(.x, ...) median(.x, ...),
-    .q75_value = function(.x, ...) quantile(.x, probs = 0.75, ...),
+    .q25_value = function(.x, ...) stats::quantile(.x, probs = 0.25, ...),
+    .q50_value = function(.x, ...) stats::median(.x, ...),
+    .q75_value = function(.x, ...) stats::quantile(.x, probs = 0.75, ...),
     .q100_value = function(.x, ...) max(.x, ...),
     .mean_value = function(.x, ...) mean(.x, ...),
-    .sd_value = function(.x, ...) sd(.x, ...)
+    .sd_value = function(.x, ...) stats::sd(.x, ...)
   )
-  return(as.data.frame(lapply(describe_functions, function(.f) .f(.x, na.rm = TRUE)), row.names = "1"))
+  return(as.data.frame(lapply(describe_functions, function(.f) .f(.x, na.rm = TRUE)),
+                       row.names = "1",
+                       stringsAsFactors = FALSE))
 }
 
-#' describe non-numeric atomic vectors.
+#' Describe non-numeric atomic vectors.
 #'
 #' \code{describe_nonnumeric} takes non-numeric atomic vectors and returns a data.frame containing important descriptive statistics.
 #'

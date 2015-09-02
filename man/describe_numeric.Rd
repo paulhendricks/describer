@@ -2,7 +2,7 @@
 % Please edit documentation in R/describe.R
 \name{describe_numeric}
 \alias{describe_numeric}
-\title{describe numeric atomic vectors.}
+\title{Describe numeric atomic vectors.}
 \usage{
 describe_numeric(.x)
 }

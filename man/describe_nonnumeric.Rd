@@ -2,7 +2,7 @@
 % Please edit documentation in R/describe.R
 \name{describe_nonnumeric}
 \alias{describe_nonnumeric}
-\title{describe non-numeric atomic vectors.}
+\title{Describe non-numeric atomic vectors.}
 \usage{
 describe_nonnumeric(.x)
 }
