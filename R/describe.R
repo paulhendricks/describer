@@ -5,8 +5,10 @@
 #' @param .x a vector or data.frame to be described.
 #' @return  a data.frame containing important descriptive statistics.
 #' @examples
-#' # Let's make a comment
+#' # Example
 #' describe(mtcars)
+#' describe(iris)
+#' describe(state.name)
 #' @export
 describe <- function(.x) UseMethod("describe")
 
@@ -25,7 +27,10 @@ describe_numeric <- function(.x) {
   if(!is.atomic(.x)) stop(".x must be an atomic vector!")
   describe_functions <- list(
     .count_elements = function(.x, ...) length(.x),
-    .count_nulls = function(.x, ...) sum(is.na(.x)),
+    .count_uniques = function(.x, ...) length(unique(.x)),
+    .count_NULLs = function(.x, ...) sum(is.null(.x)),
+    .count_NAs = function(.x, ...) sum(is.na(.x)),
+    .count_zeroes = function(.x, ...) sum(.x == 0),
     .q0_value = function(.x, ...) min(.x, ...),
     .q25_value = function(.x, ...) stats::quantile(.x, probs = 0.25, ...),
     .q50_value = function(.x, ...) stats::median(.x, ...),
@@ -54,7 +59,10 @@ describe_nonnumeric <- function(.x) {
   if(!is.atomic(.x)) stop(".x must be an atomic vector!")
   describe_functions <- list(
     .count_elements = function(.x, ...) length(.x),
-    .count_nulls = function(.x, ...) sum(is.na(.x)),
+    .count_uniques = function(.x, ...) length(unique(.x)),
+    .count_NULLs = function(.x, ...) sum(is.null(.x)),
+    .count_NAs = function(.x, ...) sum(is.na(.x)),
+    .count_zeroes = function(.x, ...) NA,
     .q0_value = function(.x, ...) min(.x, ...),
     .q25_value = function(.x, ...) NA,
     .q50_value = function(.x, ...) NA,
@@ -68,25 +76,13 @@ describe_nonnumeric <- function(.x) {
                        stringsAsFactors = FALSE))
 }
 
-#' @describeIn describe Method for numeric vectors.
+#' @describeIn describe Method for numeric.
 #' @export
 describe.numeric <- function(.x) return(describe_numeric(.x))
 
-#' @describeIn describe Method for character vectors.
+#' @describeIn describe Method for character.
 #' @export
-describe.character <- function(.x) return(describe_nonnumeric(.x))
-
-#' @describeIn describe Method for factors.
-#' @export
-describe.factor <- function(.x) return(describe_nonnumeric(as.character(.x)))
-
-#' @describeIn describe Method for Date vectors.
-#' @export
-describe.Date <- function(.x) return(describe_nonnumeric(as.character(.x)))
-
-#' @describeIn describe Method for logical vectors.
-#' @export
-describe.logical <- function(.x) return(describe_nonnumeric(as.character(.x)))
+describe.character <- function(.x) return(describe_nonnumeric(as.character(.x)))
 
 #' @describeIn describe Method for data.frames.
 #' @export
@@ -105,8 +101,4 @@ describe.data.frame <- function(.x) {
 
 #' @describeIn describe Method for default.
 #' @export
-describe.default <- function(.x) {
-  message(paste0("No method exists for object of class: ", class(.x), ".", sep = ""))
-  message("Returning NULL instead.")
-  return(NULL)
-}
+describe.default <- function(.x) return(describe_nonnumeric(as.character(.x)))

@@ -16,10 +16,3 @@ test_that("describe() produces data.frames.", {
   expect_is(describe(y), "data.frame")
   expect_is(describe(z), "data.frame")
 })
-
-s <- 1:100
-class(s) <- "foo"
-test_that("describe() handles unknown classes appropriately.", {
-  expect_message(describe(s))
-  expect_equal(describe(s), NULL)
-})

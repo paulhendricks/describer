@@ -4,8 +4,8 @@
 \name{describer}
 \alias{describer}
 \alias{describer-package}
-\title{describer: Describe data in R}
+\title{describer: Describe Data in R Using Common Descriptive Statistics}
 \description{
-describer: Describe data in R
+describer: Describe Data in R Using Common Descriptive Statistics
 }
 

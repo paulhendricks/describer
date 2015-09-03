@@ -2,7 +2,8 @@
 
 ## Improvements
 
-* None.
+* Default case now handles everything as a character vector.
+* Reduced documentation in describe to numeric vectors, character vectors, and data.frames.
   
 ## Bug fixes
 

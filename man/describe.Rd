@@ -2,12 +2,9 @@
 % Please edit documentation in R/describe.R
 \name{describe}
 \alias{describe}
-\alias{describe.Date}
 \alias{describe.character}
 \alias{describe.data.frame}
 \alias{describe.default}
-\alias{describe.factor}
-\alias{describe.logical}
 \alias{describe.numeric}
 \title{Describe atomic vectors or data.frames.}
 \usage{
@@ -16,12 +13,6 @@ describe(.x)
 \method{describe}{numeric}(.x)
 
 \method{describe}{character}(.x)
-
-\method{describe}{factor}(.x)
-
-\method{describe}{Date}(.x)
-
-\method{describe}{logical}(.x)
 
 \method{describe}{data.frame}(.x)
 
@@ -38,22 +29,18 @@ a data.frame containing important descriptive statistics.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{numeric}: Method for numeric vectors.
+\item \code{numeric}: Method for numeric.
 
-\item \code{character}: Method for character vectors.
-
-\item \code{factor}: Method for factors.
-
-\item \code{Date}: Method for Date vectors.
-
-\item \code{logical}: Method for logical vectors.
+\item \code{character}: Method for character.
 
 \item \code{data.frame}: Method for data.frames.
 
 \item \code{default}: Method for default.
 }}
 \examples{
-# Let's make a comment
+# Example
 describe(mtcars)
+describe(iris)
+describe(state.name)
 }
 

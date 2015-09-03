@@ -1,4 +1,4 @@
-#' describer: Describe data in R
+#' describer: Describe Data in R Using Common Descriptive Statistics
 #'
 #' @docType package
 #' @name describer
