@@ -98,7 +98,7 @@ mtcars %>%
 |    8| gear          | numeric        | double        |                14|                2|              0|            0|               0|     3.2857143|   0.7262730|       3.000|       3.0000|        3.000|      3.00000|         5.000|
 |    8| carb          | numeric        | double        |                14|                4|              0|            0|               0|     3.5000000|   1.5566236|       2.000|       2.2500|        3.500|      4.00000|         8.000|
 
-To mimic the exact `pandas.describe()` behavior, use `reshape2` to `melt` and `cast` the data into an appropriate form. This is not recommendated as all columns will be coerced into character vectors.
+To mimic the exact `pandas.describe()` behavior, use `reshape2` to `melt()` and `cast()` the data into an appropriate form. This is not recommendated as all columns will be coerced into character vectors.
 
 ``` r
 library(reshape2)
