@@ -105,12 +105,12 @@ library(reshape2)
 
 mtcars %>% 
   describe %>% 
-  melt(id.vars = ".column_name") %>% 
-  dcast(variable ~ .column_name, value.var = "value") %>% 
+  melt(id.vars = ".column_name", variable.name = ".variable") %>% 
+  dcast(.variable ~ .column_name, value.var = "value") %>% 
   knitr::kable(format = "markdown")
 ```
 
-| variable         | am                | carb             | cyl              | disp             | drat              | gear              | hp               | mpg             | qsec             | vs                | wt                |
+| .variable        | am                | carb             | cyl              | disp             | drat              | gear              | hp               | mpg             | qsec             | vs                | wt                |
 |:-----------------|:------------------|:-----------------|:-----------------|:-----------------|:------------------|:------------------|:-----------------|:----------------|:-----------------|:------------------|:------------------|
 | .column\_class   | numeric           | numeric          | numeric          | numeric          | numeric           | numeric           | numeric          | numeric         | numeric          | numeric           | numeric           |
 | .column\_type    | double            | double           | double           | double           | double            | double            | double           | double          | double           | double            | double            |
