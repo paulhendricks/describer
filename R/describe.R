@@ -39,7 +39,8 @@ describe_numeric <- function(.x) {
     .q75_value = function(.x, ...) stats::quantile(.x, probs = 0.75, ...),
     .q100_value = function(.x, ...) max(.x, ...)
   )
-  return(as.data.frame(lapply(describe_functions, function(.f) .f(.x, na.rm = TRUE)),
+  return(as.data.frame(lapply(describe_functions,
+                              function(.f) .f(.x, na.rm = TRUE)),
                        row.names = "1",
                        stringsAsFactors = FALSE))
 }
@@ -71,7 +72,8 @@ describe_nonnumeric <- function(.x) {
     .q75_value = function(.x, ...) NA,
     .q100_value = function(.x, ...) max(.x, ...)
   )
-  return(as.data.frame(lapply(describe_functions, function(.f) .f(.x, na.rm = TRUE)),
+  return(as.data.frame(lapply(describe_functions,
+                              function(.f) .f(.x, na.rm = TRUE)),
                        row.names = "1",
                        stringsAsFactors = FALSE))
 }
@@ -82,7 +84,7 @@ describe.numeric <- function(.x) return(describe_numeric(.x))
 
 #' @describeIn describe Method for character.
 #' @export
-describe.character <- function(.x) return(describe_nonnumeric(as.character(.x)))
+describe.character <- function(.x) return(describe_nonnumeric(.x))
 
 #' @describeIn describe Method for data.frames.
 #' @export
