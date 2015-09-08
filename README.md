@@ -98,15 +98,18 @@ mtcars %>%
 |    8| gear          | numeric        | double        |                14|                2|              0|            0|               0|     3.2857143|   0.7262730|       3.000|       3.0000|        3.000|      3.00000|         5.000|
 |    8| carb          | numeric        | double        |                14|                4|              0|            0|               0|     3.5000000|   1.5566236|       2.000|       2.2500|        3.500|      4.00000|         8.000|
 
-To mimic the exact `pandas.describe()` behavior:
+To mimic the exact `pandas.describe()` behavior, use `reshape2` to `melt` and `cast` the data into an appropriate form. This is not recommendated as all columns will be coerced into character vectors.
 
 ``` r
 library(reshape2)
 
-mtcars %>% 
+pandas_describe_mtcars <- 
+  mtcars %>% 
   describe %>% 
   melt(id.vars = ".column_name", variable.name = ".variable") %>% 
-  dcast(.variable ~ .column_name, value.var = "value") %>% 
+  dcast(.variable ~ .column_name, value.var = "value")
+
+pandas_describe_mtcars %>% 
   knitr::kable(format = "markdown")
 ```
 
@@ -126,3 +129,21 @@ mtcars %>%
 | .q50\_value      | 0                 | 2                | 6                | 196.3            | 3.695             | 4                 | 123              | 19.2            | 17.71            | 0                 | 3.325             |
 | .q75\_value      | 1                 | 4                | 8                | 326              | 3.92              | 4                 | 180              | 22.8            | 18.9             | 1                 | 3.61              |
 | .q100\_value     | 1                 | 8                | 8                | 472              | 4.93              | 5                 | 335              | 33.9            | 22.9             | 1                 | 5.424             |
+
+``` r
+
+str(pandas_describe_mtcars)
+#> 'data.frame':    14 obs. of  12 variables:
+#>  $ .variable: Factor w/ 14 levels ".column_class",..: 1 2 3 4 5 6 7 8 9 10 ...
+#>  $ am       : chr  "numeric" "double" "32" "2" ...
+#>  $ carb     : chr  "numeric" "double" "32" "6" ...
+#>  $ cyl      : chr  "numeric" "double" "32" "3" ...
+#>  $ disp     : chr  "numeric" "double" "32" "27" ...
+#>  $ drat     : chr  "numeric" "double" "32" "22" ...
+#>  $ gear     : chr  "numeric" "double" "32" "3" ...
+#>  $ hp       : chr  "numeric" "double" "32" "22" ...
+#>  $ mpg      : chr  "numeric" "double" "32" "25" ...
+#>  $ qsec     : chr  "numeric" "double" "32" "30" ...
+#>  $ vs       : chr  "numeric" "double" "32" "2" ...
+#>  $ wt       : chr  "numeric" "double" "32" "29" ...
+```
