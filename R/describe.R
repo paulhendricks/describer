@@ -31,13 +31,13 @@ describe_numeric <- function(.x) {
     .count_NULLs = function(.x, ...) sum(is.null(.x)),
     .count_NAs = function(.x, ...) sum(is.na(.x)),
     .count_zeroes = function(.x, ...) sum(.x == 0),
+    .mean_value = function(.x, ...) mean(.x, ...),
+    .sd_value = function(.x, ...) stats::sd(.x, ...),
     .q0_value = function(.x, ...) min(.x, ...),
     .q25_value = function(.x, ...) stats::quantile(.x, probs = 0.25, ...),
     .q50_value = function(.x, ...) stats::median(.x, ...),
     .q75_value = function(.x, ...) stats::quantile(.x, probs = 0.75, ...),
-    .q100_value = function(.x, ...) max(.x, ...),
-    .mean_value = function(.x, ...) mean(.x, ...),
-    .sd_value = function(.x, ...) stats::sd(.x, ...)
+    .q100_value = function(.x, ...) max(.x, ...)
   )
   return(as.data.frame(lapply(describe_functions, function(.f) .f(.x, na.rm = TRUE)),
                        row.names = "1",
@@ -63,13 +63,13 @@ describe_nonnumeric <- function(.x) {
     .count_NULLs = function(.x, ...) sum(is.null(.x)),
     .count_NAs = function(.x, ...) sum(is.na(.x)),
     .count_zeroes = function(.x, ...) NA,
+    .mean_value = function(.x, ...) NA,
+    .sd_value = function(.x, ...) NA,
     .q0_value = function(.x, ...) min(.x, ...),
     .q25_value = function(.x, ...) NA,
     .q50_value = function(.x, ...) NA,
     .q75_value = function(.x, ...) NA,
-    .q100_value = function(.x, ...) max(.x, ...),
-    .mean_value = function(.x, ...) NA,
-    .sd_value = function(.x, ...) NA
+    .q100_value = function(.x, ...) max(.x, ...)
   )
   return(as.data.frame(lapply(describe_functions, function(.f) .f(.x, na.rm = TRUE)),
                        row.names = "1",
