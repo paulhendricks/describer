@@ -49,7 +49,7 @@ describe_numeric <- function(.x) {
 #' @return  a data.frame containing important descriptive statistics.
 #' @examples
 #' # Example
-#' describe(letters)
+#' describe_nonnumeric(letters)
 #' @export
 describe_nonnumeric <- function(.x) {
   if(is.numeric(.x)) stop(".x must be a non-numeric vector!")

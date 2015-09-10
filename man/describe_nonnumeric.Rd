@@ -17,6 +17,6 @@ a data.frame containing important descriptive statistics.
 }
 \examples{
 # Example
-describe(letters)
+describe_nonnumeric(letters)
 }
 
