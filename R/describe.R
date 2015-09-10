@@ -83,9 +83,9 @@ describe.character <- function(.x) return(describe_nonnumeric(.x))
 describe.data.frame <- function(.x) {
   call <- match.call()
   .df <- do.call(rbind, lapply(.x, describe))
-  .metadata <- data.frame(.column_name=rownames(.df),
-                          .column_class=sapply(.x, class),
-                          .column_type=sapply(.x, typeof),
+  .metadata <- data.frame(.column_name = rownames(.df),
+                          .column_class = sapply(.x, class),
+                          .column_type = sapply(.x, typeof),
                           stringsAsFactors = FALSE,
                           row.names = as.character(1:nrow(.df)))
   .described_dataset <- cbind(.metadata, .df)
