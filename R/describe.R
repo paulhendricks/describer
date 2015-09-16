@@ -81,7 +81,6 @@ describe.character <- function(.x) return(describe_nonnumeric(.x))
 #' @describeIn describe Method for data.frames.
 #' @export
 describe.data.frame <- function(.x) {
-  call <- match.call()
   .df <- do.call(rbind, lapply(.x, describe))
   .metadata <- data.frame(.column_name = rownames(.df),
                           .column_class = sapply(.x, class),

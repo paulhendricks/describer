@@ -2,7 +2,7 @@
 describer
 =========
 
-[![Build Status](https://travis-ci.org/paulhendricks/describer.png?branch=master)](https://travis-ci.org/paulhendricks/describer) [![Build status](https://ci.appveyor.com/api/projects/status/jyh7mh23q1htalww/branch/master?svg=true)](https://ci.appveyor.com/project/paulhendricks/describer/branch/master) [![codecov.io](http://codecov.io/github/paulhendricks/describer/coverage.svg?branch=master)](http://codecov.io/github/paulhendricks/describer?branch=master) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/describer)](http://cran.r-project.org/package=describer) [![Downloads from the RStudio CRAN mirror](http://cranlogs.r-pkg.org/badges/describer)](http://cran.rstudio.com/package=describer) [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/describer)](http://cran.r-project.org/package=describer) [![Downloads from the RStudio CRAN mirror](http://cranlogs.r-pkg.org/badges/describer)](http://cran.rstudio.com/package=describer) [![Build Status](https://travis-ci.org/paulhendricks/describer.png?branch=master)](https://travis-ci.org/paulhendricks/describer) [![Build status](https://ci.appveyor.com/api/projects/status/jyh7mh23q1htalww/branch/master?svg=true)](https://ci.appveyor.com/project/paulhendricks/describer/branch/master) [![codecov.io](http://codecov.io/github/paulhendricks/describer/coverage.svg?branch=master)](http://codecov.io/github/paulhendricks/describer?branch=master) [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active)
 
 `describer` quickly and easily describes data using common descriptive statistics.
 
@@ -11,13 +11,17 @@ Installation
 
 You can install:
 
--   the latest released version from CRAN with
+-   the latest released version from CRAN:
+
+    [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/describer)](http://cran.r-project.org/package=describer)
 
     ``` r
     install.packages("describer")
     ```
 
--   the latest development version from github with
+-   the latest development version from Github:
+
+        [![GitHub version](https://badge.fury.io/gh/paulhendricks%2Fanonymizer.svg)](http://badge.fury.io/gh/paulhendricks%2Fanonymizer)
 
     ``` r
     if (packageVersion("devtools") < 1.6) {
@@ -144,9 +148,14 @@ str(pandas_describe_mtcars)
 #>  $ wt       : chr  "numeric" "double" "32" "3.21725" ...
 ```
 
-Author
+People
 ------
 
-The original author of `describer` is [Paul Hendricks](https://github.com/paulhendricks).
+-   The original author of `describer` is [Paul Hendricks](https://github.com/paulhendricks). [![Gratipay](https://img.shields.io/gratipay/JSFiddle.svg)](https://gratipay.com/~paulhendricks/)
 
-[![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.png)](https://gratipay.com/paulhendricks/)
+-   The lead maintainer of `describer` is [Paul Hendricks](https://github.com/paulhendricks). [![Gratipay](https://img.shields.io/gratipay/JSFiddle.svg)](https://gratipay.com/~paulhendricks/)
+
+License
+-------
+
+[![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/paulhendricks/describer/blob/master/LICENSE)
