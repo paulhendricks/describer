@@ -1,4 +1,4 @@
-# describer 0.1.0.9000
+# describer 0.2.0
 
 ## Improvements
 
