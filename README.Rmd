@@ -66,7 +66,7 @@ mtcars %>%
   knitr::kable(format = "markdown")
 ```
 
-To mimic the exact `pandas.describe()` behavior, use `reshape2` to `melt()` and `cast()` the data into an appropriate form. This is not recommendated as all columns will be coerced into character vectors.
+To mimic the exact `pandas.describe()` behavior, use `pd_describe`.
 
 ```{r}
 library(reshape2)
