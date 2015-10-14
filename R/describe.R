@@ -26,7 +26,7 @@ describe_numeric <- function(.x) {
   if(!is.numeric(.x)) stop(".x must be a numeric vector!")
   if(!is.atomic(.x)) stop(".x must be an atomic vector!")
   describe_functions <- list(
-    .count_elements = function(.x, ...) length(.x),
+    .count_elements = function(.x, ...) sum(!is.na(.x)),
     .mean_value = function(.x, ...) mean(.x, ...),
     .sd_value = function(.x, ...) stats::sd(.x, ...),
     .q0_value = function(.x, ...) min(.x, ...),
@@ -55,7 +55,7 @@ describe_nonnumeric <- function(.x) {
   if(is.numeric(.x)) stop(".x must be a non-numeric vector!")
   if(!is.atomic(.x)) stop(".x must be an atomic vector!")
   describe_functions <- list(
-    .count_elements = function(.x, ...) length(.x),
+    .count_elements = function(.x, ...) sum(!is.na(.x)),
     .mean_value = function(.x, ...) NA,
     .sd_value = function(.x, ...) NA,
     .q0_value = function(.x, ...) min(.x, ...),
