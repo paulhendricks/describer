@@ -11,5 +11,6 @@ License: MIT + file LICENSE
 LazyData: true
 Suggests:
     dplyr,
+    reshape2,
     testthat,
     lintr

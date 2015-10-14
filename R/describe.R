@@ -93,3 +93,25 @@ describe.data.frame <- function(.x) {
 #' @describeIn describe Method for default.
 #' @export
 describe.default <- function(.x) return(describe_nonnumeric(as.character(.x)))
+
+#' Describe data.frames with pandas results.
+#'
+#' \code{pd_describe} takes vectors and data.frames and returns a data.frame containing important descriptive statistics.
+#'
+#' @param .x a vector or data.frame to be described.
+#' @return  a data.frame containing important descriptive statistics.
+#' @examples
+#' # Example
+#' pd_describe(mtcars)
+#' pd_describe(iris)
+#' @export
+pd_describe <- function(.x) {
+  if(!is.data.frame(.x)) stop(".x must be a data.frame!")
+  .x <- describe(.x)
+  .x <- reshape2::melt(.x, id.vars = ".column_name",
+                       variable.name = ".variable")
+  .x <- reshape2::dcast(.x, .variable ~ .column_name,
+                        value.var = "value")
+  .x[, ".variable"] <- as.character(.x[, ".variable"])
+  return(.x)
+}

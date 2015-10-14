@@ -73,9 +73,7 @@ library(reshape2)
 
 pandas_describe_mtcars <- 
   mtcars %>% 
-  describe %>% 
-  melt(id.vars = ".column_name", variable.name = ".variable") %>% 
-  dcast(.variable ~ .column_name, value.var = "value")
+  pd_describe
 
 pandas_describe_mtcars %>% 
   knitr::kable(format = "markdown")
