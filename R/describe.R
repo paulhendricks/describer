@@ -97,7 +97,6 @@ describe.default <- function(.x) return(describe_nonnumeric(as.character(.x)))
 #' Describe data.frames with pandas results.
 #'
 #' \code{pd_describe} takes vectors and data.frames and returns a data.frame containing important descriptive statistics.
-#' To be edited
 #'
 #' @param .x a vector or data.frame to be described.
 #' @return  a data.frame containing important descriptive statistics.
