@@ -90,4 +90,3 @@ str(pandas_describe_mtcars)
 ## License
 
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/paulhendricks/describer/blob/master/LICENSE)
-
