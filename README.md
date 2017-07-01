@@ -805,7 +805,7 @@ str(pandas_describe_mtcars)
 Citation
 --------
 
-To cite package ‘anonymizer’ in publications use:
+To cite package ‘describer’ in publications use:
 
     Paul Hendricks (2015). describer: Describe Data in R Using Common Descriptive Statistics. R package version 0.2.0. https://CRAN.R-project.org/package=describer
 
